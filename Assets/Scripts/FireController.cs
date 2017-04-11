@@ -14,6 +14,8 @@ public class FireController : MonoBehaviour {
 		if (Input.GetMouseButtonDown (0)) {
 			Ray ray = new Ray (transform.position + new Vector3(0, 0.1f, 0), transform.forward);
 			RaycastHit hit = new RaycastHit ();
+
+
 		}
 
 				
