@@ -105,8 +105,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
                                m_CharacterController.height/2f, Physics.AllLayers, QueryTriggerInteraction.Ignore);
             desiredMove = Vector3.ProjectOnPlane(desiredMove, hitInfo.normal).normalized;
 
-            m_MoveDir.x = desiredMove.x*speed;
-            m_MoveDir.z = desiredMove.z*speed;
+			if (CrossPlatformInputManager.GetButton ("C") && m_CharacterController.isGrounded) {
+				m_MoveDir.x = desiredMove.x * speed / 4;
+				m_MoveDir.z = desiredMove.z * speed / 4;
+			} else {
+				m_MoveDir.x = desiredMove.x * speed;
+				m_MoveDir.z = desiredMove.z * speed;
+			}
 
 
             if (m_CharacterController.isGrounded)
@@ -184,19 +189,28 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 return;
             }
-            if (m_CharacterController.velocity.magnitude > 0 && m_CharacterController.isGrounded)
-            {
-                m_Camera.transform.localPosition =
-                    m_HeadBob.DoHeadBob(m_CharacterController.velocity.magnitude +
-                                      (speed*(m_IsWalking ? 1f : m_RunstepLenghten)));
-                newCameraPosition = m_Camera.transform.localPosition;
-                newCameraPosition.y = m_Camera.transform.localPosition.y - m_JumpBob.Offset();
-            }
-            else
-            {
-                newCameraPosition = m_Camera.transform.localPosition;
-                newCameraPosition.y = m_OriginalCameraPosition.y - m_JumpBob.Offset();
-            }
+			if (m_CharacterController.velocity.magnitude > 0 && m_CharacterController.isGrounded)
+			{
+				m_Camera.transform.localPosition =
+                    m_HeadBob.DoHeadBob (m_CharacterController.velocity.magnitude +
+				(speed * (m_IsWalking ? 1f : m_RunstepLenghten)));
+				newCameraPosition = m_Camera.transform.localPosition;
+				newCameraPosition.y = m_Camera.transform.localPosition.y - m_JumpBob.Offset ();
+			} 
+			else
+			{
+				newCameraPosition = m_Camera.transform.localPosition;
+				newCameraPosition.y = m_OriginalCameraPosition.y - m_JumpBob.Offset ();
+			}
+
+			if (CrossPlatformInputManager.GetButton ("C") && m_CharacterController.isGrounded) 
+			{
+				newCameraPosition = m_Camera.transform.localPosition;
+				newCameraPosition.y = m_OriginalCameraPosition.y - 0.7f;
+			}
+
+	
+
             m_Camera.transform.localPosition = newCameraPosition;
         }
 
