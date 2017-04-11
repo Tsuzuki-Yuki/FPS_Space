@@ -6,9 +6,12 @@ public class FireController : MonoBehaviour {
 
 	public GameObject fire;
 	public GameObject muzzle;
+	public AudioClip fireSound;
+	AudioSource audioSource;
 	float coolTime;
 	// Use this for initialization
 	void Start () {
+		audioSource = GetComponent<AudioSource> ();
 		coolTime = 0.0f;
 	}
 
@@ -19,6 +22,8 @@ public class FireController : MonoBehaviour {
 		if (Input.GetMouseButtonDown (0) && coolTime >= 0.5f) {
 			Ray ray = new Ray (transform.position + new Vector3(0, 0.1f, 0), transform.forward);
 			RaycastHit hit = new RaycastHit ();
+
+			audioSource.PlayOneShot (fireSound);
 			GameObject muzzleFire = (GameObject)Instantiate (fire, muzzle.transform.position, muzzle.transform.rotation);
 			Destroy (muzzleFire, 0.1f);
 			coolTime = 0.0f;
