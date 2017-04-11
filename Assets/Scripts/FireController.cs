@@ -6,19 +6,22 @@ public class FireController : MonoBehaviour {
 
 	public GameObject fire;
 	public GameObject muzzle;
+	float coolTime;
 	// Use this for initialization
 	void Start () {
-		
+		coolTime = 0.0f;
 	}
 
 	// Update is called once per frame
 	void Update () {
+		coolTime += Time.deltaTime;
 
-		if (Input.GetMouseButtonDown (0)) {
+		if (Input.GetMouseButtonDown (0) && coolTime >= 0.5f) {
 			Ray ray = new Ray (transform.position + new Vector3(0, 0.1f, 0), transform.forward);
 			RaycastHit hit = new RaycastHit ();
 			GameObject muzzleFire = (GameObject)Instantiate (fire, muzzle.transform.position, muzzle.transform.rotation);
 			Destroy (muzzleFire, 0.1f);
+			coolTime = 0.0f;
 
 			if (Physics.Raycast (ray, out hit)) {
 				GameObject hitFire = (GameObject)Instantiate (fire, hit.point, hit.transform.rotation);
