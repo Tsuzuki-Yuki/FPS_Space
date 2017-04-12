@@ -65,7 +65,8 @@ public class FireController : MonoBehaviour {
 		--bullet;
 
 		if (Physics.Raycast (ray, out hit)) {
-			GameObject hitFire = (GameObject)Instantiate (fire, hit.point, hit.transform.rotation);
+			Vector3 hitLocation = new Vector3 (hit.point.x, hit.point.y, hit.point.z - 0.2f);
+			GameObject hitFire = (GameObject)Instantiate (fire, hitLocation, hit.transform.rotation);
 			Destroy (hitFire, 0.1f);
 		}
 	}
