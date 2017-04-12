@@ -105,7 +105,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                                m_CharacterController.height/2f, Physics.AllLayers, QueryTriggerInteraction.Ignore);
             desiredMove = Vector3.ProjectOnPlane(desiredMove, hitInfo.normal).normalized;
 
-			if (CrossPlatformInputManager.GetButton ("C") && m_CharacterController.isGrounded) {
+			if (Input.GetKey ("c") && m_CharacterController.isGrounded) {
 				m_MoveDir.x = desiredMove.x * speed / 4;
 				m_MoveDir.z = desiredMove.z * speed / 4;
 			} else {
@@ -203,7 +203,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 				newCameraPosition.y = m_OriginalCameraPosition.y - m_JumpBob.Offset ();
 			}
 
-			if (CrossPlatformInputManager.GetButton ("C") && m_CharacterController.isGrounded) 
+			if (Input.GetKey ("c") && m_CharacterController.isGrounded) 
 			{
 				newCameraPosition = m_Camera.transform.localPosition;
 				newCameraPosition.y = m_OriginalCameraPosition.y - 0.7f;
