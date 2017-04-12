@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class FireController : MonoBehaviour {
 
-	public GameObject fire;
-	public GameObject muzzle;
-	public AudioClip fireSound;
+	[SerializeField] private GameObject fire;
+	[SerializeField] private GameObject muzzle;
+	[SerializeField] private AudioClip fireSound;
 	AudioSource audioSource;
 	float coolTime;
 	// Use this for initialization
