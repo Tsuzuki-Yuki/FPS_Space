@@ -20,7 +20,8 @@ public class FireController : MonoBehaviour {
 		coolTime += Time.deltaTime;
 
 		if (Input.GetMouseButtonDown (0) && coolTime >= 0.5f) {
-			Ray ray = new Ray (transform.position + new Vector3(0, 0.1f, 0), transform.forward);
+			Vector3 cameraCenter = new Vector3(Screen.width/2, Screen.height/2, 0);
+			Ray ray = Camera.main.ScreenPointToRay(cameraCenter);
 			RaycastHit hit = new RaycastHit ();
 
 			audioSource.PlayOneShot (fireSound);
