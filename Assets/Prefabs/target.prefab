@@ -40,6 +40,8 @@ GameObject:
   - component: {fileID: 33537857546227972}
   - component: {fileID: 23326286928801782}
   - component: {fileID: 64668099374967908}
+  - component: {fileID: 114075195181518634}
+  - component: {fileID: 54003078041752722}
   m_Layer: 0
   m_Name: pCube1
   m_TagString: Untagged
@@ -55,8 +57,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4556275145982418}
-  - component: {fileID: 95944314279795156}
-  - component: {fileID: 54488943329324236}
+  - component: {fileID: 95755728597704318}
   m_Layer: 0
   m_Name: target
   m_TagString: Untagged
@@ -181,18 +182,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1340250800736996}
   m_Mesh: {fileID: 4300000, guid: 6e4b42461da5a4123b8101091224d9ab, type: 3}
---- !u!54 &54488943329324236
+--- !u!54 &54003078041752722
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1363167562868778}
+  m_GameObject: {fileID: 1340250800736996}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -217,14 +218,14 @@ MeshCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1340250800736996}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 0
+  m_Convex: 1
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 6e4b42461da5a4123b8101091224d9ab, type: 3}
---- !u!95 &95944314279795156
+--- !u!95 &95755728597704318
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
@@ -233,7 +234,7 @@ Animator:
   m_GameObject: {fileID: 1363167562868778}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 6e4b42461da5a4123b8101091224d9ab, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 059b5a183f8654f4c91d295a36601e13, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -241,3 +242,14 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114075195181518634
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1340250800736996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dfde0f89f273451481a00342c917acf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
