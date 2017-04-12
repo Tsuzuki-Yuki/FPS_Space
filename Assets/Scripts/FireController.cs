@@ -21,6 +21,7 @@ public class FireController : MonoBehaviour {
 		bulletUpLimit = 30;
 		bullet = bulletUpLimit;
 		bulletBox = 150;
+		reloadTime = reloadSound.length;
 	}
 
 	// Update is called once per frame
@@ -30,14 +31,8 @@ public class FireController : MonoBehaviour {
 
 
 		//発砲
-		if (Time.time < reloadSound.length) { //ゲーム再生からreloadSound.timeだけ発砲できなかったので
-			if (Input.GetMouseButtonDown (0) && coolTime >= 0.5f && bullet > 0) {
-				Firing ();
-			}
-		} else {
-			if (Input.GetMouseButtonDown (0) && coolTime >= 0.5f && bullet > 0 && reloadTime > reloadSound.length) {
-				Firing ();
-			}
+		if (Input.GetMouseButtonDown (0) && coolTime >= 0.5f && bullet > 0 && reloadTime > reloadSound.length) {
+			Firing ();
 		}
 
 		//リロード機能
