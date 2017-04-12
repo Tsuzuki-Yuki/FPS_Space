@@ -9,17 +9,23 @@ public class FireController : MonoBehaviour {
 	[SerializeField] private AudioClip fireSound;
 	AudioSource audioSource;
 	float coolTime;
+	int bullet;
+	int bulletUpLimit;
+	int bulletBox;
 	// Use this for initialization
 	void Start () {
 		audioSource = GetComponent<AudioSource> ();
 		coolTime = 0.0f;
+		bulletUpLimit = 30;
+		bullet = bulletUpLimit;
+		bulletBox = 150;
 	}
 
 	// Update is called once per frame
 	void Update () {
 		coolTime += Time.deltaTime;
 
-		if (Input.GetMouseButtonDown (0) && coolTime >= 0.5f) {
+		if (Input.GetMouseButtonDown (0) && coolTime >= 0.5f && bullet > 0) {
 			Vector3 cameraCenter = new Vector3(Screen.width/2, Screen.height/2, 0);
 			Ray ray = Camera.main.ScreenPointToRay(cameraCenter);
 			RaycastHit hit = new RaycastHit ();
@@ -28,6 +34,7 @@ public class FireController : MonoBehaviour {
 			GameObject muzzleFire = (GameObject)Instantiate (fire, muzzle.transform.position, muzzle.transform.rotation);
 			Destroy (muzzleFire, 0.1f);
 			coolTime = 0.0f;
+			--bullet;
 
 			if (Physics.Raycast (ray, out hit)) {
 				GameObject hitFire = (GameObject)Instantiate (fire, hit.point, hit.transform.rotation);
