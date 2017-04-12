@@ -3488,6 +3488,7 @@ MonoBehaviour:
   fire: {fileID: 1456169027388958, guid: 6521f9de7868947b1a821c240fc6341b, type: 2}
   muzzle: {fileID: 1966442087}
   fireSound: {fileID: 8300000, guid: 8602b7d5cd15c1943a50aa53f171c8cf, type: 3}
+  reloadSound: {fileID: 8300000, guid: 3c5c1d4d7b9307c458890a4beb12e4ae, type: 3}
 --- !u!82 &213298226
 AudioSource:
   m_ObjectHideFlags: 0
