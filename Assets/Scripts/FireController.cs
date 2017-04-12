@@ -42,6 +42,18 @@ public class FireController : MonoBehaviour {
 			}
 		}
 
+		if (Input.GetKey ("r") && bullet < bulletUpLimit && bulletBox > 0) {
+			int reload = bulletUpLimit - bullet;
+
+			if (bulletBox > reload) {
+				bullet += reload;
+				bulletBox -= reload;
+			} else {
+				bullet += bulletBox;
+				bulletBox = 0;
+			}
+		}
+
 				
 	}
 }
