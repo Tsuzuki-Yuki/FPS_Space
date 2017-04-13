@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class targetController : MonoBehaviour {
+public class TargetController : MonoBehaviour {
 
 	[SerializeField] private GameObject target;
 	// Use this for initialization

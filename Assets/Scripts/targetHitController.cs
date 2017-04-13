@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class targetHitController : MonoBehaviour {
+public class TargetHitController : MonoBehaviour {
 
 	[SerializeField] private GameObject headMarker;
 	private GameObject target;
