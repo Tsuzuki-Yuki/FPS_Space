@@ -19,7 +19,7 @@ public class ScoreController : MonoBehaviour {
 	}
 
 	void OnTriggerEnter (Collider other){
-		if (other.gameObject.tag == "Bullet") {
+		if (other.gameObject.tag == "Bullet" && TargetHitController.targetLife >= 0) {
 			scoreDistance = Vector3.Distance (headMarkerCenter, FireController.hitLocation);
 			score = (int)((1 - scoreDistance) * 100);
 			print (score);

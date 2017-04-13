@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 64668099374967908}
   - component: {fileID: 114075195181518634}
   - component: {fileID: 54003078041752722}
+  - component: {fileID: 114311737501567908}
   m_Layer: 0
   m_Name: pCube1
   m_TagString: Untagged
@@ -335,6 +336,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4dfde0f89f273451481a00342c917acf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  anim: {fileID: 0}
+--- !u!114 &114311737501567908
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1340250800736996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5732acd2a44ee4a8a880cac19dd0b937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   headMarker: {fileID: 1509164902709062}

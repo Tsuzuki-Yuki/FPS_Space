@@ -5,7 +5,7 @@ using UnityEngine;
 public class TargetHitController : MonoBehaviour {
 
 	private GameObject target;
-	int targetLife;
+	public static int targetLife;
 	Animator anim;
 
 	// Use this for initialization
