@@ -34,7 +34,13 @@ public class targetHitController : MonoBehaviour {
 
 			if (targetLife == 0) {
 				anim.SetBool("broken", true);
+				Invoke ("rebornTarget", 10.0f);
 			}
 		}
+	}
+
+	void rebornTarget(){
+		anim.SetBool ("broken", false);
+		targetLife = 5;
 	}
 }
