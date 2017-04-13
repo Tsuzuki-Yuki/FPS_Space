@@ -8,12 +8,13 @@ public class FireController : MonoBehaviour {
 	[SerializeField] private GameObject muzzle;
 	[SerializeField] private AudioClip fireSound;
 	[SerializeField] private AudioClip reloadSound;
-	AudioSource audioSource;
+	public static Vector3 hitLocation;
 	float coolTime;
 	float reloadTime;
 	int bullet;
 	int bulletUpLimit;
 	int bulletBox;
+	AudioSource audioSource;
 	// Use this for initialization
 	void Start () {
 		audioSource = GetComponent<AudioSource> ();
@@ -65,8 +66,9 @@ public class FireController : MonoBehaviour {
 		--bullet;
 
 		if (Physics.Raycast (ray, out hit)) {
-			Vector3 hitLocation = new Vector3 (hit.point.x, hit.point.y, hit.point.z - 0.2f);
-			GameObject hitFire = (GameObject)Instantiate (fire, hitLocation, hit.transform.rotation);
+			hitLocation = hit.point; //スコア取得のためのヒット位置の取得
+			Vector3 particleLocation = new Vector3 (hit.point.x, hit.point.y, hit.point.z - 0.2f);
+			GameObject hitFire = (GameObject)Instantiate (fire, particleLocation, hit.transform.rotation);
 			Destroy (hitFire, 0.1f);
 		}
 	}

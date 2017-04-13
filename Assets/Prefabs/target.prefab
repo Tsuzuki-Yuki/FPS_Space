@@ -275,7 +275,7 @@ MeshCollider:
   m_GameObject: {fileID: 1509164902709062}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Convex: 0
   m_InflateMesh: 0
@@ -337,3 +337,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dfde0f89f273451481a00342c917acf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  headMarker: {fileID: 1509164902709062}
