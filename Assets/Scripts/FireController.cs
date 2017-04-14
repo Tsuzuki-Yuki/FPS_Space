@@ -9,11 +9,11 @@ public class FireController : MonoBehaviour {
 	[SerializeField] private AudioClip fireSound;
 	[SerializeField] private AudioClip reloadSound;
 	public static Vector3 hitLocation;
+	public static int bullet;
+	public static int bulletBox;
 	float coolTime;
 	float reloadTime;
-	int bullet;
 	int bulletUpLimit;
-	int bulletBox;
 	AudioSource audioSource;
 	// Use this for initialization
 	void Start () {

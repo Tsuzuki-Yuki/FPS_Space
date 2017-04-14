@@ -13,7 +13,6 @@ public class TargetHitController : MonoBehaviour {
 		targetLife = 5;
 		target = transform.parent.gameObject;
 		anim = target.GetComponent<Animator> ();
-
 	}
 	
 	// Update is called once per frame
